@@ -24,16 +24,16 @@ public class Attraction : MonoBehaviour
 
         if (craftRigidbody != null)
         {
-            // 计算吸引力方向
+            // 
             Vector3 distanceVector = transform.position - craft.transform.position;
             float distance = distanceVector.magnitude;
             Vector3 attractionDirection = distanceVector.normalized;
 
-            // 计算吸引力大小
+            // 
             float attractionForce = attractPara / distance ;
 
-            // 把吸引力加到刚体上
-            craftRigidbody.AddForce(attractionDirection * attractionForce );
+            // 
+            //craftRigidbody.AddForce(attractionDirection * attractionForce );
 
            // Debug.Log("Distance Vector: " + distance);
            
@@ -64,5 +64,10 @@ public class Attraction : MonoBehaviour
                 volumePara--;
             }
         }
+    }
+
+    public float getAttractPara()
+    {
+        return attractPara;
     }
 }
