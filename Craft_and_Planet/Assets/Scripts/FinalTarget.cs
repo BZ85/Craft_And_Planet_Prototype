@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class FinalTarget : MonoBehaviour
 {
+    public GameObject winText;
+    public GameObject background;
     // Start is called before the first frame update
-    public GameObject text;
+
     void Start()
     {
         
@@ -18,10 +20,12 @@ public class FinalTarget : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
+        //game win
         if (collision.gameObject.name == "Craft")
         {
-            text.SetActive(true);
-            Debug.Log("Collide");
+            winText.SetActive(true);
+            background.SetActive(true);
+            Debug.Log("Win");
         }
     }
 }

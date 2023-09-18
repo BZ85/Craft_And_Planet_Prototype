@@ -7,7 +7,9 @@ public class PlayerControl : MonoBehaviour
     // Start is called before the first frame update
     public List<GameObject> characters = new List<GameObject>();
     public GameObject planet;
-
+    public GameObject GameOverText;
+    public GameObject background;
+    public int health = 3;
     private Vector3 velocity = Vector3.up;
     
     void Start()
@@ -31,7 +33,7 @@ public class PlayerControl : MonoBehaviour
             float attractPara = characters[i].GetComponent<Attraction>().getAttractPara();
             print(attractPara);
             // 
-            float attractionForce = attractPara/10.0f * 0.001f * 1 / distance;
+            float attractionForce = attractPara/10.0f * 0.003f * 1 / distance;
             velocity = velocity + attractionForce * attractionDirection; 
         }
 
@@ -48,7 +50,27 @@ public class PlayerControl : MonoBehaviour
         transform.eulerAngles = new Vector3( .0f, .0f, z);
 
         transform.position = transform.position + velocity * Time.deltaTime;
+
+
+        //game over
+        if(health == 0)
+        {
+            GameOverText.SetActive(true);
+            background.SetActive(true);
+            // Time.timeScale = 0f;
+            // print("Game over");
+        }
+
+        
     }
 
-    
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.name == "Background")
+        {
+            velocity = velocity * -0.5f;
+            Debug.Log("Collide");
+        }
+    }
+
 }
