@@ -26,6 +26,8 @@ public class FinalTarget : MonoBehaviour
             winText.SetActive(true);
             background.SetActive(true);
             Debug.Log("Win");
+
+            Time.timeScale = 0;
         }
     }
 }

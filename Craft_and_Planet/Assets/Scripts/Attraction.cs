@@ -4,19 +4,15 @@ using UnityEngine;
 
 public class Attraction : MonoBehaviour
 {
-    public GameObject craft;
     
     // Start is called before the first frame update
     private float attractPara;
     private float deltaAttPara;
     public Vector3 distanceVector;
     public Vector3 acceleration;
-    private Rigidbody2D craftRigidbody;
     private int volumePara = 2;
     void Start()
     {
-        craftRigidbody = craft.GetComponent<Rigidbody2D>();
-
         attractPara = transform.localScale.x * 10;
         deltaAttPara = transform.localScale.x * 4;
     }

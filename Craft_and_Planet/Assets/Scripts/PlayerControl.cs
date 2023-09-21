@@ -33,7 +33,7 @@ public class PlayerControl : MonoBehaviour
             float attractPara = characters[i].GetComponent<Attraction>().getAttractPara();
             print(attractPara);
             // 
-            float attractionForce = attractPara/10.0f * 0.003f * 1 / distance;
+            float attractionForce = attractPara/10.0f * 0.001f * 1 / distance;
             velocity = velocity + attractionForce * attractionDirection; 
         }
 
@@ -57,7 +57,7 @@ public class PlayerControl : MonoBehaviour
         {
             GameOverText.SetActive(true);
             background.SetActive(true);
-            // Time.timeScale = 0f;
+            Time.timeScale = 0f;
             // print("Game over");
         }
 
@@ -70,6 +70,7 @@ public class PlayerControl : MonoBehaviour
         {
             velocity = velocity * -0.5f;
             Debug.Log("Collide");
+
         }
     }
 
